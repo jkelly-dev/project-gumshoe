@@ -17,7 +17,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vadxt"]
-size = Vector2(31, 67)
+size = Vector2(130.946, 124.466)
 
 [node name="Root" type="Node2D"]
 
@@ -43,6 +43,3 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room 0/Door/ClickBox"]
 position = Vector2(-12.5, -13.5)
 shape = SubResource("RectangleShape2D_vadxt")
-
-[connection signal="mouse_entered" from="Room 0/Door/ClickBox" to="Room 0/Door" method="_on_click_box_mouse_entered"]
-[connection signal="mouse_exited" from="Room 0/Door/ClickBox" to="Room 0/Door" method="_on_click_box_mouse_exited"]
