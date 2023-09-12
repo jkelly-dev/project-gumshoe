@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgpa2nrhg1eft"]
+[gd_scene load_steps=7 format=3 uid="uid://cgpa2nrhg1eft"]
 
 [ext_resource type="Texture2D" uid="uid://bt1ogbviy7ylp" path="res://resources/bg_store_interior.png" id="1_fwqhj"]
 [ext_resource type="Texture2D" uid="uid://nb0p42w62pik" path="res://resources/spr_clerk_base.png" id="2_08m8w"]
+[ext_resource type="Texture2D" uid="uid://b5vqi71o5prt3" path="res://icon.svg" id="3_012q6"]
+[ext_resource type="Script" path="res://Door.gd" id="3_lhdd0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qs2fx"]
 animations = [{
@@ -17,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vadxt"]
-size = Vector2(31, 67)
+size = Vector2(130.946, 124.466)
 
 [node name="Root" type="Node2D"]
 
@@ -37,11 +39,30 @@ position = Vector2(875, 319)
 scale = Vector2(0.65676, 0.658814)
 metadata/_edit_group_ = true
 
+[node name="spr_clerk_base" type="Sprite2D" parent="Room 0/Clerk"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_08m8w")
+
 [node name="Area2D" type="Area2D" parent="Room 0/Clerk"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room 0/Clerk/Area2D"]
 position = Vector2(5, 13)
 shape = SubResource("RectangleShape2D_vadxt")
 
-[node name="spr_clerk_base" type="Sprite2D" parent="Room 0/Clerk"]
-texture = ExtResource("2_08m8w")
+[node name="Exit" type="Node2D" parent="Room 0"]
+position = Vector2(314, 681)
+scale = Vector2(0.65676, 0.658814)
+script = ExtResource("3_lhdd0")
+destination = "res://street.tscn"
+metadata/_edit_group_ = true
+
+[node name="spr_clerk_base" type="Sprite2D" parent="Room 0/Exit"]
+scale = Vector2(1, 1)
+texture = ExtResource("3_012q6")
+
+[node name="ClickBox" type="Area2D" parent="Room 0/Exit"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room 0/Exit/ClickBox"]
+position = Vector2(1.52267, -1.51794)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_vadxt")

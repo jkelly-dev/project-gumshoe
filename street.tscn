@@ -17,7 +17,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vadxt"]
-size = Vector2(31, 67)
+size = Vector2(130.946, 124.466)
 
 [node name="Root" type="Node2D"]
 

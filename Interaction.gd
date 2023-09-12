@@ -8,11 +8,15 @@ var DEBUG
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	DEBUG = true
+	
 	clickbox = get_node("ClickBox")
 	highlighted = false
-	DEBUG = true
+	
+	clickbox.mouse_entered.connect(_on_click_box_mouse_entered)
+	clickbox.mouse_exited.connect(_on_click_box_mouse_exited)
 	#if DEBUG:
-	print(clickbox)
+	
 	
 
 
@@ -30,6 +34,8 @@ func _input(event):
 		
 func _interact():
 	print("CLICK")
+
+
 
 func _on_click_box_mouse_entered():
 	highlighted = true
