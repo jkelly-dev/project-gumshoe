@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgpa2nrhg1eft"]
+
+[ext_resource type="Texture2D" uid="uid://bt1ogbviy7ylp" path="res://resources/bg_store_interior.png" id="1_fwqhj"]
+[ext_resource type="Texture2D" uid="uid://nb0p42w62pik" path="res://resources/spr_clerk_base.png" id="2_08m8w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qs2fx"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"rainy_street",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vadxt"]
+size = Vector2(31, 67)
+
+[node name="Root" type="Node2D"]
+
+[node name="Room 0" type="Node" parent="."]
+
+[node name="BG_animated" type="AnimatedSprite2D" parent="Room 0"]
+sprite_frames = SubResource("SpriteFrames_qs2fx")
+animation = &"rainy_street"
+
+[node name="bg_base" type="Sprite2D" parent="Room 0"]
+position = Vector2(641.632, 361.5)
+scale = Vector2(0.663889, 0.663889)
+texture = ExtResource("1_fwqhj")
+
+[node name="Clerk" type="Node2D" parent="Room 0"]
+position = Vector2(875, 319)
+scale = Vector2(0.65676, 0.658814)
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Room 0/Clerk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room 0/Clerk/Area2D"]
+position = Vector2(5, 13)
+shape = SubResource("RectangleShape2D_vadxt")
+
+[node name="spr_clerk_base" type="Sprite2D" parent="Room 0/Clerk"]
+texture = ExtResource("2_08m8w")

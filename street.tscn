@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh6p8ixbxhug5"]
+
+[ext_resource type="Texture2D" uid="uid://tj3ljryg5nm2" path="res://resources/rainy_street_ph.png" id="1_a88os"]
+[ext_resource type="Script" path="res://Door.gd" id="2_rohau"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qs2fx"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"rainy_street",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vadxt"]
+size = Vector2(31, 67)
+
+[node name="Root" type="Node2D"]
+
+[node name="Room 0" type="Node" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Room 0"]
+sprite_frames = SubResource("SpriteFrames_qs2fx")
+animation = &"rainy_street"
+
+[node name="Sprite2D" type="Sprite2D" parent="Room 0"]
+position = Vector2(641.632, 361.5)
+scale = Vector2(0.663889, 0.663889)
+texture = ExtResource("1_a88os")
+
+[node name="Door" type="Node2D" parent="Room 0"]
+position = Vector2(565, 329)
+script = ExtResource("2_rohau")
+destination = "res://lobby.tscn"
+metadata/_edit_group_ = true
+
+[node name="ClickBox" type="Area2D" parent="Room 0/Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room 0/Door/ClickBox"]
+position = Vector2(-12.5, -13.5)
+shape = SubResource("RectangleShape2D_vadxt")
+
+[connection signal="mouse_entered" from="Room 0/Door/ClickBox" to="Room 0/Door" method="_on_click_box_mouse_entered"]
+[connection signal="mouse_exited" from="Room 0/Door/ClickBox" to="Room 0/Door" method="_on_click_box_mouse_exited"]
