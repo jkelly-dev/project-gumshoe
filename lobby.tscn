@@ -1,11 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://cgpa2nrhg1eft"]
+[gd_scene load_steps=32 format=3 uid="uid://cgpa2nrhg1eft"]
 
 [ext_resource type="Texture2D" uid="uid://bt1ogbviy7ylp" path="res://resources/bg_store_interior.png" id="1_fwqhj"]
-[ext_resource type="Texture2D" uid="uid://nb0p42w62pik" path="res://resources/spr_clerk_base.png" id="2_08m8w"]
+[ext_resource type="Texture2D" uid="uid://dmany4f1frvtv" path="res://resources/Interactions/Characters/Clerk/hover/clerk.hover0.png" id="2_fhf3o"]
+[ext_resource type="Script" path="res://Person.gd" id="2_plm7q"]
 [ext_resource type="Texture2D" uid="uid://dpb5ni0r4pfob" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite00.png" id="3_6lk3m"]
 [ext_resource type="Texture2D" uid="uid://b5vqi71o5prt3" path="res://icon.svg" id="3_012q6"]
 [ext_resource type="Script" path="res://Door.gd" id="3_lhdd0"]
+[ext_resource type="Texture2D" uid="uid://dim2rln7mskpj" path="res://resources/Interactions/Characters/Clerk/hover/clerk.hover1.png" id="3_mviy1"]
 [ext_resource type="Texture2D" uid="uid://c1nqebqdjn811" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite01.png" id="4_7hiaa"]
+[ext_resource type="Texture2D" uid="uid://diiydouy7fd16" path="res://resources/Interactions/Characters/Clerk/hover/clerk.hover2.png" id="4_skfer"]
+[ext_resource type="Texture2D" uid="uid://j6wrvry1rbxh" path="res://resources/Interactions/Characters/Clerk/hover/clerk.hover3.png" id="5_4ybgm"]
 [ext_resource type="Texture2D" uid="uid://dx03nt7k2lvvk" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite02.png" id="5_whrwo"]
 [ext_resource type="Texture2D" uid="uid://c81nig6evicca" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite03.png" id="6_u05il"]
 [ext_resource type="Texture2D" uid="uid://byfhf784fyjv0" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite04.png" id="7_urv26"]
@@ -26,6 +30,23 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x3fip"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fhf3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mviy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_skfer")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4ybgm")
+}],
+"loop": false,
+"name": &"hover",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_6lk3m")
@@ -85,18 +106,41 @@ animations = [{
 "texture": ExtResource("21_h6358")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"idle",
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vadxt"]
-size = Vector2(130.946, 124.466)
+size = Vector2(197.942, 204.914)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21qn8"]
+size = Vector2(129.423, 121.43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_np2a8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_012q6")
+}],
+"loop": false,
+"name": &"hover",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_012q6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
 
 [node name="Root" type="Node2D"]
 
 [node name="Room 0" type="Node" parent="."]
 
 [node name="BG_animated" type="AnimatedSprite2D" parent="Room 0"]
+visible = false
 position = Vector2(331, 214)
 
 [node name="bg_base" type="Sprite2D" parent="Room 0"]
@@ -107,23 +151,21 @@ texture = ExtResource("1_fwqhj")
 [node name="Clerk" type="Node2D" parent="Room 0"]
 position = Vector2(875, 319)
 scale = Vector2(0.65676, 0.658814)
+script = ExtResource("2_plm7q")
 metadata/_edit_group_ = true
 
-[node name="spr_clerk_base" type="Sprite2D" parent="Room 0/Clerk"]
-visible = false
-scale = Vector2(1, 1)
-texture = ExtResource("2_08m8w")
-
-[node name="spr_clerk_mot" type="AnimatedSprite2D" parent="Room 0/Clerk"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Room 0/Clerk"]
 position = Vector2(8.99109, 11.9935)
 scale = Vector2(0.457366, 0.457366)
 sprite_frames = SubResource("SpriteFrames_x3fip")
-autoplay = "default"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="Room 0/Clerk"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room 0/Clerk/Area2D"]
-position = Vector2(5, 13)
+position = Vector2(15.2262, 12.902)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vadxt")
 
 [node name="Exit" type="Node2D" parent="Room 0"]
@@ -133,13 +175,14 @@ script = ExtResource("3_lhdd0")
 destination = "res://street.tscn"
 metadata/_edit_group_ = true
 
-[node name="spr_clerk_base" type="Sprite2D" parent="Room 0/Exit"]
-scale = Vector2(1, 1)
-texture = ExtResource("3_012q6")
+[node name="Area2D" type="Area2D" parent="Room 0/Exit"]
 
-[node name="ClickBox" type="Area2D" parent="Room 0/Exit"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room 0/Exit/ClickBox"]
-position = Vector2(1.52267, -1.51794)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room 0/Exit/Area2D"]
+position = Vector2(-0.761292, -3.03564)
 scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_vadxt")
+shape = SubResource("RectangleShape2D_21qn8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Room 0/Exit"]
+sprite_frames = SubResource("SpriteFrames_np2a8")
+animation = &"hover"
+autoplay = "idle"

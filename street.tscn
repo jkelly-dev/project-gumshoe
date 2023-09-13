@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bh6p8ixbxhug5"]
+[gd_scene load_steps=17 format=3 uid="uid://bh6p8ixbxhug5"]
 
 [ext_resource type="Texture2D" uid="uid://ch6xk4qabt2et" path="res://resources/Backgrounds/Street/frame0000.png" id="2_cfp4a"]
 [ext_resource type="Script" path="res://Door.gd" id="2_rohau"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://douo7eqcnbfy6" path="res://resources/Backgrounds/Street/frame0005.png" id="7_t8gu2"]
 [ext_resource type="Texture2D" uid="uid://08q077a6o6tp" path="res://resources/Backgrounds/Street/frame0006.png" id="8_u20tv"]
 [ext_resource type="Texture2D" uid="uid://ifx00jikuwgk" path="res://resources/Backgrounds/Street/frame0007.png" id="9_jrodl"]
+[ext_resource type="Texture2D" uid="uid://4di3umr1uxmi" path="res://resources/Interactions/Objects/Rain Street Door/storedoor0.png" id="10_pk7c2"]
+[ext_resource type="Texture2D" uid="uid://db07026tbldnb" path="res://resources/Interactions/Objects/Rain Street Door/storedoor1.png" id="11_76rpv"]
+[ext_resource type="Texture2D" uid="uid://cwwj28fxoq88y" path="res://resources/Interactions/Objects/Rain Street Door/storedoor2.png" id="12_kfh7p"]
+[ext_resource type="Texture2D" uid="uid://b5b2ooeay4mou" path="res://resources/Interactions/Objects/Rain Street Door/storedoor3.png" id="13_2wost"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qs2fx"]
 resource_local_to_scene = true
@@ -48,8 +52,36 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vadxt"]
-size = Vector2(130.946, 124.466)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ip48s"]
+size = Vector2(31, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w582h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_pk7c2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_76rpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kfh7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2wost")
+}],
+"loop": false,
+"name": &"hover",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_pk7c2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
 
 [node name="Root" type="Node2D"]
 
@@ -61,8 +93,7 @@ scale = Vector2(0.663426, 0.663426)
 sprite_frames = SubResource("SpriteFrames_qs2fx")
 animation = &"rainy_street"
 autoplay = "rainy_street"
-frame = 2
-frame_progress = 0.849615
+frame_progress = 0.399916
 
 [node name="Sprite2D" type="Sprite2D" parent="Room 0"]
 visible = false
@@ -73,10 +104,15 @@ scale = Vector2(0.663889, 0.663889)
 position = Vector2(565, 329)
 script = ExtResource("2_rohau")
 destination = "res://lobby.tscn"
-metadata/_edit_group_ = true
 
-[node name="ClickBox" type="Area2D" parent="Room 0/Door"]
+[node name="Area2D" type="Area2D" parent="Room 0/Door"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room 0/Door/ClickBox"]
-position = Vector2(-12.5, -13.5)
-shape = SubResource("RectangleShape2D_vadxt")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room 0/Door/Area2D"]
+position = Vector2(-15.5, -16)
+shape = SubResource("RectangleShape2D_ip48s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Room 0/Door"]
+position = Vector2(-15, -15)
+scale = Vector2(0.253333, 0.253333)
+sprite_frames = SubResource("SpriteFrames_w582h")
+animation = &"hover"

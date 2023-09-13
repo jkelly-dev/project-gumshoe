@@ -4,3 +4,4 @@ class_name Door extends Interaction
 	
 func _interact():
 	get_tree().change_scene_to_file(destination)
+

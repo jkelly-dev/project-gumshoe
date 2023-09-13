@@ -10,11 +10,14 @@ var DEBUG
 func _ready():
 	DEBUG = true
 	
-	clickbox = get_node("ClickBox")
+	clickbox = get_node("Area2D")
+	sprite = get_node("AnimatedSprite2D")
 	highlighted = false
 	
 	clickbox.mouse_entered.connect(_on_click_box_mouse_entered)
 	clickbox.mouse_exited.connect(_on_click_box_mouse_exited)
+	
+	sprite.animation_finished.connect(_on_animation_end)
 	#if DEBUG:
 	
 	
@@ -35,12 +38,23 @@ func _input(event):
 func _interact():
 	print("CLICK")
 
-
+func _jostle():
+	pass
+func _tuck():
+	pass
+	
+func _on_animation_end():
+	if !highlighted: 
+		sprite.play("idle")
 
 func _on_click_box_mouse_entered():
 	highlighted = true
+	sprite.play("hover")
+	
+
 	
 func _on_click_box_mouse_exited():
 	highlighted = false
+	sprite.play_backwards("hover")
 
 
