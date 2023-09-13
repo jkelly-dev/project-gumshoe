@@ -1,20 +1,91 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgpa2nrhg1eft"]
+[gd_scene load_steps=26 format=3 uid="uid://cgpa2nrhg1eft"]
 
 [ext_resource type="Texture2D" uid="uid://bt1ogbviy7ylp" path="res://resources/bg_store_interior.png" id="1_fwqhj"]
 [ext_resource type="Texture2D" uid="uid://nb0p42w62pik" path="res://resources/spr_clerk_base.png" id="2_08m8w"]
+[ext_resource type="Texture2D" uid="uid://dpb5ni0r4pfob" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite00.png" id="3_6lk3m"]
 [ext_resource type="Texture2D" uid="uid://b5vqi71o5prt3" path="res://icon.svg" id="3_012q6"]
 [ext_resource type="Script" path="res://Door.gd" id="3_lhdd0"]
+[ext_resource type="Texture2D" uid="uid://c1nqebqdjn811" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite01.png" id="4_7hiaa"]
+[ext_resource type="Texture2D" uid="uid://dx03nt7k2lvvk" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite02.png" id="5_whrwo"]
+[ext_resource type="Texture2D" uid="uid://c81nig6evicca" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite03.png" id="6_u05il"]
+[ext_resource type="Texture2D" uid="uid://byfhf784fyjv0" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite04.png" id="7_urv26"]
+[ext_resource type="Texture2D" uid="uid://y507ipqnfvko" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite05.png" id="8_bhati"]
+[ext_resource type="Texture2D" uid="uid://ba453kde70c8u" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite06.png" id="9_xhcb5"]
+[ext_resource type="Texture2D" uid="uid://cys78auocrmym" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite07.png" id="10_hwhwt"]
+[ext_resource type="Texture2D" uid="uid://dhaa5ysftb02n" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite08.png" id="11_tf37n"]
+[ext_resource type="Texture2D" uid="uid://uqmldycshn4o" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite09.png" id="12_dkqb2"]
+[ext_resource type="Texture2D" uid="uid://dckhxfhwd6dsk" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite10.png" id="13_krq4p"]
+[ext_resource type="Texture2D" uid="uid://bdhvw71t4tm3b" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite11.png" id="14_qy88q"]
+[ext_resource type="Texture2D" uid="uid://lbh02x38br5v" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite12.png" id="15_bp7qf"]
+[ext_resource type="Texture2D" uid="uid://c0vllu7dacepy" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite13.png" id="16_ymoau"]
+[ext_resource type="Texture2D" uid="uid://dgldjua2m8fop" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite14.png" id="17_ml3u5"]
+[ext_resource type="Texture2D" uid="uid://blybor331og2m" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite15.png" id="18_nuk2n"]
+[ext_resource type="Texture2D" uid="uid://dqx3quebxsql4" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite16.png" id="19_1vyxa"]
+[ext_resource type="Texture2D" uid="uid://c6a2480vhigj" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite17.png" id="20_1w0oi"]
+[ext_resource type="Texture2D" uid="uid://bg86gbtiuenm1" path="res://resources/Interactions/Characters/Clerk/passive/clerk(pageflipframes)/clerk sprite18.png" id="21_h6358"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qs2fx"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_x3fip"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6lk3m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7hiaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_whrwo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u05il")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_urv26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bhati")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xhcb5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hwhwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tf37n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_dkqb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_krq4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qy88q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bp7qf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ymoau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ml3u5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_nuk2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_1vyxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_1w0oi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_h6358")
+}],
 "loop": true,
 "name": &"default",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"rainy_street",
 "speed": 5.0
 }]
 
@@ -26,8 +97,7 @@ size = Vector2(130.946, 124.466)
 [node name="Room 0" type="Node" parent="."]
 
 [node name="BG_animated" type="AnimatedSprite2D" parent="Room 0"]
-sprite_frames = SubResource("SpriteFrames_qs2fx")
-animation = &"rainy_street"
+position = Vector2(331, 214)
 
 [node name="bg_base" type="Sprite2D" parent="Room 0"]
 position = Vector2(641.632, 361.5)
@@ -40,8 +110,15 @@ scale = Vector2(0.65676, 0.658814)
 metadata/_edit_group_ = true
 
 [node name="spr_clerk_base" type="Sprite2D" parent="Room 0/Clerk"]
+visible = false
 scale = Vector2(1, 1)
 texture = ExtResource("2_08m8w")
+
+[node name="spr_clerk_mot" type="AnimatedSprite2D" parent="Room 0/Clerk"]
+position = Vector2(8.99109, 11.9935)
+scale = Vector2(0.457366, 0.457366)
+sprite_frames = SubResource("SpriteFrames_x3fip")
+autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="Room 0/Clerk"]
 
